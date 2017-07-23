@@ -86,6 +86,8 @@ function uniquify(list) {
 function setQuery(url) {
   var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
+  if (Object.keys(data).length === 0) return url;
+
   var _parseQuery = parseQuery(url),
       originData = _parseQuery.data,
       host = _parseQuery.host;

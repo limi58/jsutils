@@ -83,6 +83,7 @@ function uniquify(list) {
 // 'http://www.a.com', { haha: 123, xixi: 233 }) => 'http://www.a.com?haha=123&xixi=233'
 // 'http://www.a.com?wowo=233', { haha: 123, xixi: 233 }) => 'http://www.a.com?haha=123&xixi=233&wowo=233'
 function setQuery (url, data = {}) {
+  if (Object.keys(data).length === 0) return url
   const { data: originData, host } = parseQuery(url)
   const query = serialize(Object.assign({}, originData, data))
   return `${host}?${query}`
